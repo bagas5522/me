@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodieHub - Temukan Makanan Favoritmu</title>
+  <meta name="description" content="FoodieHub menyajikan ragam kuliner Nusantara dan Internasional terbaik dengan bahan segar, koki berpengalaman, dan cita rasa tak tertandingi. Pesan makanan favoritmu sekarang!">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="header" id="navbar">
+    <div class="container nav-container">
+      <a href="#beranda" class="logo" id="brand-logo">
+        <span class="logo-icon"><i class="fa-solid fa-utensils"></i></span>
+        <span class="logo-text">Foodie<span>Hub</span></span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-links" id="nav-menu">
+        <a href="#beranda" class="nav-link active">Beranda</a>
+        <a href="#kategori" class="nav-link">Kategori</a>
+        <a href="#menu" class="nav-link">Menu Populer</a>
+        <a href="#tentang" class="nav-link">Tentang Kami</a>
+        <a href="#testimoni" class="nav-link">Ulasan</a>
+        <a href="#kontak" class="nav-link">Kontak</a>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <!-- Search Trigger in Header -->
+        <button class="nav-action-btn search-trigger" id="search-trigger" title="Cari Menu" aria-label="Cari Menu">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <!-- Cart Button with Counter Badge -->
+        <button class="nav-action-btn cart-btn" id="open-cart-btn" title="Keranjang Belanja" aria-label="Keranjang Belanja">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cart-counter">0</span>
+        </button>
+
+        <!-- Quick Order CTA -->
+        <a href="#menu" class="btn btn-primary nav-cta-btn">
+          <span>Pesan Sekarang</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="hamburger-btn" id="mobile-toggle" aria-label="Buka Menu Navigasi">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="drawer-header">
+      <a href="#beranda" class="logo">
+        <span class="logo-icon"><i class="fa-solid fa-utensils"></i></span>
+        <span class="logo-text">Foodie<span>Hub</span></span>
+      </a>
+      <button class="close-drawer-btn" id="close-drawer" aria-label="Tutup Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <nav class="mobile-links">
+      <a href="#beranda" class="mobile-link"><i class="fa-solid fa-house"></i> Beranda</a>
+      <a href="#kategori" class="mobile-link"><i class="fa-solid fa-layer-group"></i> Kategori</a>
+      <a href="#menu" class="mobile-link"><i class="fa-solid fa-bowl-food"></i> Menu Populer</a>
+      <a href="#tentang" class="mobile-link"><i class="fa-solid fa-circle-info"></i> Tentang Kami</a>
+      <a href="#testimoni" class="mobile-link"><i class="fa-solid fa-star"></i> Ulasan</a>
+      <a href="#kontak" class="mobile-link"><i class="fa-solid fa-paper-plane"></i> Kontak</a>
+    </nav>
+    <div class="drawer-footer">
+      <a href="#menu" class="btn btn-primary btn-block" id="mobile-order-btn">Pesan Sekarang</a>
+      <div class="drawer-contact-info">
+        <p><i class="fa-solid fa-phone"></i> +62 812-3456-7890</p>
+        <p><i class="fa-solid fa-clock"></i> Buka 09:00 - 22:00 WIB</p>
+      </div>
+    </div>
+  </div>
+  <div class="overlay" id="mobile-overlay"></div>
+
+  <!-- Main Content -->
+  <main>
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero-section" id="beranda">
+      <div class="hero-background-shape shape-1"></div>
+      <div class="hero-background-shape shape-2"></div>
+      
+      <div class="container hero-container">
+        <!-- Hero Text Column -->
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span>Cita Rasa Otentik & Higienis</span>
+          </div>
+          
+          <h1 class="hero-title">
+            Temukan Makanan <span class="highlight-text">Favoritmu</span> dengan Kelezatan Juara
+          </h1>
+          
+          <p class="hero-subtitle">
+            Nikmati aneka hidangan kuliner Nusantara dan Internasional yang disiapkan langsung oleh koki handal kami menggunakan bahan 100% segar dan resep istimewa.
+          </p>
+
+          <!-- Search & Filter bar -->
+          <div class="hero-search-box">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="hero-search-input" placeholder="Mau makan apa hari ini? (misal: Rendang, Burger, Es Teh...)" aria-label="Cari menu makanan">
+            <button class="btn btn-primary search-submit-btn" id="hero-search-btn">
+              <span>Cari Menu</span>
+            </button>
+          </div>
+
+          <!-- Hero Highlights / Badges -->
+          <div class="hero-stats-row">
+            <div class="hero-stat-item">
+              <div class="stat-icon"><i class="fa-solid fa-star text-gold"></i></div>
+              <div class="stat-text">
+                <strong>4.9 / 5.0</strong>
+                <span>15.000+ Ulasan</span>
+              </div>
+            </div>
+            <div class="hero-stat-item">
+              <div class="stat-icon"><i class="fa-solid fa-bolt text-primary"></i></div>
+              <div class="stat-text">
+                <strong>30 Menit</strong>
+                <span>Pengiriman Kilat</span>
+              </div>
+            </div>
+            <div class="hero-stat-item">
+              <div class="stat-icon"><i class="fa-solid fa-shield-heart text-green"></i></div>
+              <div class="stat-text">
+                <strong>100% Segar</strong>
+                <span>Halal & Alami</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Image Showcase Column -->
+        <div class="hero-visual">
+          <div class="hero-image-wrapper">
+            <div class="hero-glow-ring"></div>
+            <img src="images/hero-food.jpg" alt="Hidangan Lezat FoodieHub" class="hero-img" id="hero-main-img">
+            
+            <!-- Floating Card 1: Promo Badge -->
+            <div class="floating-badge badge-top-right">
+              <div class="badge-icon-bubble fire">🔥</div>
+              <div>
+                <p class="badge-title">Promo Hari Ini</p>
+                <p class="badge-desc">Diskon Spesial 25%</p>
+              </div>
+            </div>
+
+            <!-- Floating Card 2: Top Rated Dish -->
+            <div class="floating-badge badge-bottom-left">
+              <div class="badge-icon-bubble star">⭐</div>
+              <div>
+                <p class="badge-title">Menu Favorit</p>
+                <p class="badge-desc">Rendang Sapi Autentik</p>
+              </div>
+            </div>
+
+            <!-- Floating Card 3: Free Delivery -->
+            <div class="floating-badge badge-bottom-right">
+              <div class="badge-icon-bubble bike">🛵</div>
+              <div>
+                <p class="badge-title">Bebas Ongkir</p>
+                <p class="badge-desc">Min. Order Rp 50.000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= KEUNGGULAN / FEATURES ================= -->
+    <section class="features-section" id="keunggulan">
+      <div class="container">
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon-wrapper icon-orange">
+              <i class="fa-solid fa-leaf"></i>
+            </div>
+            <h3>Bahan Segar Pilihan</h3>
+            <p>Dipilih setiap hari dari petani dan peternak lokal terbaik demi menjaga mutu dan rasa alami.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-wrapper icon-yellow">
+              <i class="fa-solid fa-hat-chef fa-kitchen-set"></i>
+            </div>
+            <h3>Koki Profesional</h3>
+            <p>Dipersiapkan dengan standar kuliner tinggi oleh koki berpengalaman dan berdedikasi penuh rasa.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-wrapper icon-blue">
+              <i class="fa-solid fa-motorcycle"></i>
+            </div>
+            <h3>Pengiriman Cepat</h3>
+            <p>Dikemas dalam wadah termal khusus agar makanan tetap hangat, higienis, dan lezat sampai tujuan.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-wrapper icon-green">
+              <i class="fa-solid fa-heart-circle-check"></i>
+            </div>
+            <h3>100% Halal & Bersih</h3>
+            <p>Seluruh proses olahan makanan terjamin kebersihan, higienitas, dan kehalalannya secara penuh.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= KATEGORI MAKANAN ================= -->
+    <section class="categories-section" id="kategori">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Kategori Menu</span>
+          <h2 class="section-title">Pilih Berdasarkan Selera Anda</h2>
+          <p class="section-subtitle">Pilih kategori favorit Anda untuk menemukan sajian yang paling pas memanjakan lidah.</p>
+        </div>
+
+        <!-- Category Filter Buttons / Pills -->
+        <div class="category-filters" id="category-filters">
+          <button class="category-pill active" data-category="all">
+            <span class="pill-icon">🍽️</span>
+            <span class="pill-name">Semua Menu</span>
+          </button>
+          <button class="category-pill" data-category="makanan">
+            <span class="pill-icon">🍛</span>
+            <span class="pill-name">Makanan Utama</span>
+          </button>
+          <button class="category-pill" data-category="camilan">
+            <span class="pill-icon">🍟</span>
+            <span class="pill-name">Camilan & Snack</span>
+          </button>
+          <button class="category-pill" data-category="minuman">
+            <span class="pill-icon">🍹</span>
+            <span class="pill-name">Minuman Segar</span>
+          </button>
+          <button class="category-pill" data-category="penutup">
+            <span class="pill-icon">🍰</span>
+            <span class="pill-name">Dessert Penutup</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= KARTU MENU & HARGA ================= -->
+    <section class="menu-section" id="menu">
+      <div class="container">
+        <div class="menu-header-bar">
+          <div>
+            <span class="section-tag">Daftar Hidangan</span>
+            <h2 class="section-title">Menu Favorit & Spesial</h2>
+          </div>
+          
+          <!-- In-menu search & sort -->
+          <div class="menu-search-wrapper">
+            <div class="menu-search-input-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="menu-search-filter" placeholder="Cari nama menu..." aria-label="Saring menu">
+              <button id="clear-search-btn" class="clear-btn" style="display: none;" title="Hapus pencarian">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <select id="menu-sort-select" class="sort-select" aria-label="Urutkan menu">
+              <option value="default">Urutan: Rekomendasi</option>
+              <option value="price-asc">Harga: Termurah</option>
+              <option value="price-desc">Harga: Tertinggi</option>
+              <option value="rating">Rating Tertinggi</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Menu Cards Container -->
+        <div class="menu-grid" id="menu-grid">
+          <!-- Dynamically populated via script.js, with fallback pre-rendered items below -->
+        </div>
+
+        <!-- Empty State (Hidden by default) -->
+        <div class="menu-empty-state" id="menu-empty-state" style="display: none;">
+          <div class="empty-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+          <h3>Menu Tidak Ditemukan</h3>
+          <p>Maaf, tidak ada sajian yang cocok dengan kata kunci atau kategori yang Anda pilih.</p>
+          <button class="btn btn-secondary" id="reset-filter-btn">Tampilkan Semua Menu</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TENTANG KAMI ================= -->
+    <section class="about-section" id="tentang">
+      <div class="container about-container">
+        <!-- About Visual -->
+        <div class="about-visual">
+          <div class="about-image-card">
+            <img src="images/about-chef.jpg" alt="Chef Utama FoodieHub" class="about-img">
+            <div class="about-badge-experience">
+              <span class="exp-number">12+</span>
+              <span class="exp-text">Tahun Melayani Rasa Juara</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- About Content -->
+        <div class="about-content">
+          <span class="section-tag">Tentang FoodieHub</span>
+          <h2 class="section-title">Dedikasi Kami untuk Rasa Terbaik di Setiap Gigitan</h2>
+          
+          <p class="about-text">
+            <strong>FoodieHub</strong> lahir dari kecintaan yang mendalam pada keberagaman cita rasa kuliner. Kami percaya bahwa setiap piring bukan sekadar makanan, melainkan pengalaman yang menghangatkan hati dan membawa kebersamaan.
+          </p>
+          <p class="about-text">
+            Dengan komitmen kuat pada kualitas, kami hanya menggunakan bahan segar alami tanpa bahan pengawet berlebih, dipadukan dengan teknik memasak otentik yang disempurnakan oleh tim koki berstandar bintang lima.
+          </p>
+
+          <div class="about-points">
+            <div class="about-point">
+              <i class="fa-solid fa-circle-check text-primary"></i>
+              <span>Bahan baku organik & rempah pilihan dari Nusantara</span>
+            </div>
+            <div class="about-point">
+              <i class="fa-solid fa-circle-check text-primary"></i>
+              <span>Dapur higienis berstandar protokol sanitasi ketat</span>
+            </div>
+            <div class="about-point">
+              <i class="fa-solid fa-circle-check text-primary"></i>
+              <span>Kemasan eco-friendly yang menjaga kehangatan makanan</span>
+            </div>
+          </div>
+
+          <!-- Stats numbers -->
+          <div class="about-stats-grid">
+            <div class="about-stat-box">
+              <span class="about-stat-number" data-count="15000">15.000+</span>
+              <span class="about-stat-label">Pesanan Sukses</span>
+            </div>
+            <div class="about-stat-box">
+              <span class="about-stat-number" data-count="50">50+</span>
+              <span class="about-stat-label">Varian Menu</span>
+            </div>
+            <div class="about-stat-box">
+              <span class="about-stat-number" data-count="99">99%</span>
+              <span class="about-stat-label">Pelanggan Puas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TESTIMONI PELANGGAN ================= -->
+    <section class="testimonials-section" id="testimoni">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Apa Kata Mereka</span>
+          <h2 class="section-title">Ulasan Jujur Pelanggan Kami</h2>
+          <p class="section-subtitle">Lebih dari puluhan ribu penikmat kuliner mempercayakan selera makan mereka kepada FoodieHub.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="stars-row">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">"Rendang dagingnya luar biasa empuk dan bumbunya benar-benar meresap sampai ke serat terdalam! Pengiriman juga cepat cuma 25 menit masih hangat."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar avatar-1">DA</div>
+              <div>
+                <h4 class="author-name">Dimas Anggara</h4>
+                <p class="author-role">Food Enthusiast • Jakarta Selatan</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card highlight-card">
+            <div class="stars-row">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">"Dimsum Mentai dan Nasi Goreng Seafood-nya wajib dicoba! Porsi melimpah, saus mentai gurih ditorch wangi banget. Langganan makan siang kantor!"</p>
+            <div class="testimonial-author">
+              <div class="author-avatar avatar-2">SP</div>
+              <div>
+                <h4 class="author-name">Siti Pertiwi</h4>
+                <p class="author-role">Corporate Manager • Senayan</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="stars-row">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">"Choco Lava Cake-nya lumer banget, dipadu es krim vanilla bener-bener dessert terbaik di akhir pekan. Pelayanan via web ramah dan praktis."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar avatar-3">RW</div>
+              <div>
+                <h4 class="author-name">Rian Wicaksono</h4>
+                <p class="author-role">Content Creator • BSD</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= KONTAK & LOKASI ================= -->
+    <section class="contact-section" id="kontak">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Hubungi Kami</span>
+          <h2 class="section-title">Ada Pertanyaan atau Mau Reservasi?</h2>
+          <p class="section-subtitle">Tim FoodieHub selalu siap melayani pesanan katering, reservasi meja, dan pertanyaan Anda.</p>
+        </div>
+
+        <div class="contact-layout">
+          <!-- Contact Information Cards -->
+          <div class="contact-info-column">
+            <div class="info-card">
+              <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <h4>Alamat Restoran</h4>
+                <p>Jl. Kuliner Senopati No. 88, Kebayoran Baru, Jakarta Selatan 12190</p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon"><i class="fa-brands fa-whatsapp"></i></div>
+              <div>
+                <h4>WhatsApp & Pemesanan</h4>
+                <p>+62 812-3456-7890 (Respon Cepat)</p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+              <div>
+                <h4>Jam Operasional</h4>
+                <p>Senin - Minggu: 09.00 - 22.00 WIB<br><small class="text-primary">*Layanan pesan antar aktif setiap hari</small></p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <h4>Email Resmi</h4>
+                <p>halo@foodiehub.id / kerjasama@foodiehub.id</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Contact Form -->
+          <div class="contact-form-card">
+            <h3>Kirim Pesan / Kritik & Saran</h3>
+            <p class="form-desc">Tuliskan pesan Anda dan kami akan membalasnya sesegera mungkin.</p>
+            
+            <form id="contact-form" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contact-name">Nama Lengkap *</label>
+                  <input type="text" id="contact-name" name="name" placeholder="Misal: Budi Santoso" required>
+                </div>
+                <div class="form-group">
+                  <label for="contact-phone">Nomor WhatsApp *</label>
+                  <input type="tel" id="contact-phone" name="phone" placeholder="081234567890" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email">Email (Opsional)</label>
+                <input type="email" id="contact-email" name="email" placeholder="budi@contoh.com">
+              </div>
+
+              <div class="form-group">
+                <label for="contact-subject">Keperluan</label>
+                <select id="contact-subject" name="subject">
+                  <option value="Tanya Menu">Pertanyaan Menu / Pesanan</option>
+                  <option value="Katering">Pemesanan Katering & Acara</option>
+                  <option value="Kritik Saran">Kritik & Masukan Rasa</option>
+                  <option value="Kerjasama">Kerjasama & Kemitraan</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message">Pesan Anda *</label>
+                <textarea id="contact-message" name="message" rows="4" placeholder="Tuliskan detail pertanyaan atau pesanan Anda di sini..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block submit-form-btn" id="contact-submit-btn">
+                <span>Kirim Pesan Sekarang</span>
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-grid">
+        <!-- Brand Info -->
+        <div class="footer-brand-col">
+          <a href="#beranda" class="logo footer-logo">
+            <span class="logo-icon"><i class="fa-solid fa-utensils"></i></span>
+            <span class="logo-text">Foodie<span>Hub</span></span>
+          </a>
+          <p class="footer-tagline">
+            Temukan Makanan Favoritmu bersama FoodieHub. Solusi kuliner lezat, higienis, dan terpercaya untuk seluruh keluarga Indonesia.
+          </p>
+          <div class="social-links">
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram FoodieHub" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://tiktok.com" target="_blank" rel="noreferrer" aria-label="TikTok FoodieHub" class="social-link"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook FoodieHub" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube FoodieHub" class="social-link"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Navigasi Cepat</h4>
+          <ul class="footer-links">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#kategori">Kategori Makanan</a></li>
+            <li><a href="#menu">Menu Terpopuler</a></li>
+            <li><a href="#tentang">Cerita FoodieHub</a></li>
+            <li><a href="#kontak">Hubungi Kami</a></li>
+          </ul>
+        </div>
+
+        <!-- Categories Links -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Kategori Kuliner</h4>
+          <ul class="footer-links">
+            <li><a href="#menu" onclick="filterByCategory('makanan')">Makanan Utama</a></li>
+            <li><a href="#menu" onclick="filterByCategory('camilan')">Camilan & Kudapan</a></li>
+            <li><a href="#menu" onclick="filterByCategory('minuman')">Minuman Segar</a></li>
+            <li><a href="#menu" onclick="filterByCategory('penutup')">Dessert & Kue</a></li>
+            <li><a href="#menu">Paket Hemat Spesial</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter & Operational -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Langganan Diskon</h4>
+          <p class="footer-text">Dapatkan voucher diskon hingga 30% dan info promo menu baru langsung ke email Anda.</p>
+          <form id="newsletter-form" class="newsletter-form">
+            <input type="email" id="newsletter-email" placeholder="Alamat email Anda..." required aria-label="Alamat email langganan">
+            <button type="submit" class="btn btn-primary" aria-label="Kirim langganan"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+          <div class="payment-badges">
+            <span class="pay-chip"><i class="fa-solid fa-qrcode"></i> QRIS</span>
+            <span class="pay-chip"><i class="fa-solid fa-wallet"></i> GoPay / OVO</span>
+            <span class="pay-chip"><i class="fa-solid fa-credit-card"></i> Transfer Bank</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 <strong>FoodieHub</strong>. Seluruh Hak Cipta Dilindungi. Dibuat dengan cinta untuk pecinta kuliner.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Kebijakan Privasi</a>
+          <span>•</span>
+          <a href="#">Syarat & Ketentuan</a>
+          <span>•</span>
+          <a href="#">Bantuan Pelanggan</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= MODAL LIHAT DETAIL ================= -->
+  <!-- Pop up when user clicks "Tombol Lihat Detail" -->
+  <div class="modal-backdrop" id="detail-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-food-title">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="close-detail-modal" aria-label="Tutup jendela detail">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-content-grid">
+        <!-- Modal Left: Food Image Showcase -->
+        <div class="modal-image-pane">
+          <div class="modal-img-wrapper">
+            <img id="modal-food-img" src="images/rendang.jpg" alt="Detail Makanan" class="modal-main-img">
+            <span id="modal-food-badge" class="modal-badge-tag">Terlaris 🔥</span>
+          </div>
+          <div class="modal-quick-chips">
+            <span class="modal-chip"><i class="fa-solid fa-clock"></i> 20-25 Mnt</span>
+            <span class="modal-chip"><i class="fa-solid fa-fire-flame-curved"></i> Masak Segar</span>
+            <span class="modal-chip"><i class="fa-solid fa-check"></i> 100% Halal</span>
+          </div>
+        </div>
+
+        <!-- Modal Right: Detailed Specifications & Action -->
+        <div class="modal-info-pane">
+          <div class="modal-category-rating">
+            <span class="modal-category" id="modal-food-category">Makanan Utama</span>
+            <span class="modal-rating" id="modal-food-rating"><i class="fa-solid fa-star text-gold"></i> 4.9 (240+ Ulasan)</span>
+          </div>
+
+          <h2 class="modal-title" id="modal-food-title">Rendang Daging Istimewa</h2>
+          <div class="modal-price" id="modal-food-price">Rp 45.000</div>
+
+          <p class="modal-description" id="modal-food-desc">
+            Daging sapi pilihan dimasak perlahan dengan rempah Minang autentik dan santan kental hingga meresap sempurna sampai ke serat terdalam.
+          </p>
+
+          <!-- Nutrition Facts Grid -->
+          <div class="nutrition-box">
+            <h4 class="box-label"><i class="fa-solid fa-chart-pie"></i> Informasi Nilai Gizi</h4>
+            <div class="nutrition-grid" id="modal-food-nutrition">
+              <div class="nutri-item">
+                <span class="nutri-val" id="nutri-kalori">380 kkal</span>
+                <span class="nutri-key">Kalori</span>
+              </div>
+              <div class="nutri-item">
+                <span class="nutri-val" id="nutri-protein">28 g</span>
+                <span class="nutri-key">Protein</span>
+              </div>
+              <div class="nutri-item">
+                <span class="nutri-val" id="nutri-lemak">22 g</span>
+                <span class="nutri-key">Lemak</span>
+              </div>
+              <div class="nutri-item">
+                <span class="nutri-val" id="nutri-karbo">12 g</span>
+                <span class="nutri-key">Karbohidrat</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ingredients List -->
+          <div class="ingredients-box">
+            <h4 class="box-label"><i class="fa-solid fa-seedling"></i> Komposisi & Bahan Baku:</h4>
+            <div class="ingredient-tags" id="modal-food-ingredients">
+              <!-- Dynamically populated tags -->
+            </div>
+          </div>
+
+          <!-- Options: Porsi & Kepedasan -->
+          <div class="modal-options-row">
+            <div class="option-field">
+              <label for="portion-select">Pilihan Porsi:</label>
+              <select id="portion-select" class="form-select">
+                <option value="reguler" data-extra="0">Porsi Reguler (Standar)</option>
+                <option value="jumbo" data-extra="10000">Porsi Jumbo (+Rp 10.000)</option>
+              </select>
+            </div>
+            
+            <div class="option-field" id="spicy-level-group">
+              <label for="spicy-select">Level Pedas:</label>
+              <select id="spicy-select" class="form-select">
+                <option value="tidak-pedas">Level 0 - Tidak Pedas</option>
+                <option value="sedang" selected>Level 1 - Sedang (Rekomendasi)</option>
+                <option value="pedas">Level 2 - Pedas Nampol</option>
+                <option value="ekstra">Level 3 - Ekstra Pedas 🔥</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Notes for chef -->
+          <div class="option-field note-field">
+            <label for="modal-item-note">Catatan Khusus (Opsional):</label>
+            <input type="text" id="modal-item-note" placeholder="Contoh: Sambal dipisah, tanpa seledri...">
+          </div>
+
+          <!-- Action & Quantity Bar -->
+          <div class="modal-action-bar">
+            <div class="modal-qty-control">
+              <button class="qty-btn" id="modal-qty-minus" aria-label="Kurangi jumlah">-</button>
+              <span class="qty-val" id="modal-qty-val">1</span>
+              <button class="qty-btn" id="modal-qty-plus" aria-label="Tambah jumlah">+</button>
+            </div>
+
+            <div class="modal-total-calc">
+              <span class="calc-label">Total Pesanan:</span>
+              <span class="calc-val" id="modal-total-price">Rp 45.000</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="modal-btn-group">
+            <button class="btn btn-outline-primary" id="modal-add-cart-btn">
+              <i class="fa-solid fa-cart-plus"></i>
+              <span>Tambah ke Keranjang</span>
+            </button>
+            <button class="btn btn-primary" id="modal-direct-order-btn">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>Pesan Sekarang Langsung</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= KERANJANG BELANJA SLIDE-OVER DRAWER ================= -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Keranjang Belanja">
+    <div class="cart-drawer-header">
+      <div class="cart-header-title">
+        <i class="fa-solid fa-bag-shopping text-primary"></i>
+        <h3>Keranjang Belanja</h3>
+        <span class="cart-item-count" id="cart-drawer-count">(0)</span>
+      </div>
+      <button class="cart-close-btn" id="close-cart-btn" aria-label="Tutup keranjang">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Cart items container -->
+    <div class="cart-drawer-body" id="cart-items-container">
+      <!-- Empty state when 0 items -->
+      <div class="cart-empty-state" id="cart-empty-view">
+        <div class="cart-empty-icon"><i class="fa-solid fa-basket-shopping"></i></div>
+        <h4>Keranjang Masih Kosong</h4>
+        <p>Ayo pilih makanan favoritmu dari daftar menu dan nikmati promonya!</p>
+        <button class="btn btn-primary btn-sm" id="cart-browse-menu-btn">Jelajahi Menu</button>
+      </div>
+
+      <!-- Populated via script.js -->
+      <div class="cart-items-list" id="cart-items-list" style="display: none;"></div>
+    </div>
+
+    <!-- Cart footer with totals -->
+    <div class="cart-drawer-footer" id="cart-footer" style="display: none;">
+      <div class="cart-summary-line">
+        <span>Subtotal Menu</span>
+        <span id="cart-subtotal">Rp 0</span>
+      </div>
+      <div class="cart-summary-line">
+        <span>Estimasi Ongkir</span>
+        <span id="cart-shipping" class="text-green">GRATIS</span>
+      </div>
+      <div class="cart-summary-line total-line">
+        <strong>Total Pembayaran</strong>
+        <strong id="cart-total" class="total-price-text">Rp 0</strong>
+      </div>
+      
+      <p class="cart-promo-notice" id="cart-promo-text">
+        <i class="fa-solid fa-circle-check text-green"></i> Selamat! Anda mendapatkan gratis ongkir.
+      </p>
+
+      <button class="btn btn-primary btn-block checkout-btn" id="checkout-btn">
+        <span>Checkout & Pesan Sekarang</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ================= CHECKOUT MODAL ================= -->
+  <div class="modal-backdrop" id="checkout-modal" aria-hidden="true">
+    <div class="modal-dialog checkout-dialog">
+      <button class="modal-close-btn" id="close-checkout-modal" aria-label="Tutup jendela checkout">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="checkout-content">
+        <div class="checkout-header text-center">
+          <div class="checkout-icon-bubble"><i class="fa-solid fa-receipt"></i></div>
+          <h3>Konfirmasi Pemesanan</h3>
+          <p>Lengkapi data pengiriman Anda untuk proses pesanan instan.</p>
+        </div>
+
+        <div class="checkout-summary-box" id="checkout-summary-box">
+          <!-- Populated by script.js -->
+        </div>
+
+        <form id="checkout-form" class="checkout-form">
+          <div class="form-group">
+            <label for="order-name">Nama Pemesan *</label>
+            <input type="text" id="order-name" placeholder="Nama Anda" required>
+          </div>
+          <div class="form-group">
+            <label for="order-whatsapp">Nomor WhatsApp Aktif *</label>
+            <input type="tel" id="order-whatsapp" placeholder="08xxxxxxxxxx" required>
+          </div>
+          <div class="form-group">
+            <label for="order-address">Alamat Pengiriman Lengkap *</label>
+            <textarea id="order-address" rows="3" placeholder="Alamat rumah/kantor, patokan jalan, nomor unit..." required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="order-payment">Metode Pembayaran</label>
+            <select id="order-payment">
+              <option value="QRIS / E-Wallet (GoPay, OVO, ShopeePay)">QRIS / E-Wallet (GoPay, OVO, Dana)</option>
+              <option value="Cash on Delivery (COD / Bayar di Tempat)">Cash on Delivery (COD)</option>
+              <option value="Transfer Bank Virtual Account (BCA/Mandiri/BRI)">Transfer Bank (VA)</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" id="confirm-order-btn">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>Kirim Pesanan ke WhatsApp FoodieHub</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FLOATING TOAST NOTIFICATION ================= -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
